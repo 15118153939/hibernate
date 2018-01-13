@@ -7,10 +7,17 @@
     	<property name="connection.username">root</property>
     	<property name="connection.password">Mingliang520</property>
     	<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+    	<property name="connection.autocommit">true</property>
+    	<property name="connection.url">jdbc:mysql:///hibernate?useUnicode=true&amp;characterEncoding=UTF-8</property>
+    	<!--  <property name="connection.url">jdbc:mysql:///hibernate?useUnicode=true&amp;characterEncoding=UTF-8</property>-->
+    	
     	<!-- 方言 -->
-    	<property name="dialect">org.hibernamte.dialect.MySQLDialect</property>
+    	<!-- <property name="dialect">org.hibernate.dialect.MySQLDialect</property>  -->
+    	<!--  Mysql数据库版本是5.5的，设置事务性方言时要修改，就是加一个5-->
+    	<property name="dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property> 
     	<property name="show_sql">true</property>
     	<property name="format_sql">true</property>
-    	<property name="hbm2ddl.auto">create</property>
+    	<property name="hbm2ddl.auto">update</property>
+    	<mapping resource="hbm/Students.hbm.xml"/>
     </session-factory>
 </hibernate-configuration>
