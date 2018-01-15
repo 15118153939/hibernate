@@ -216,4 +216,58 @@ public class StudentsTest {
 }
 
 ```
+session详解：
+获得session的两种方式：
+1:
+```
+	@Test
+	public void testOpenSession() {
+//		获得服务注册对象
+	      ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().configure().build();
+	        //创建会话工厂对象
+	      SessionFactory  sessionFactory = new MetadataSources(serviceRegistry).buildMetadata().buildSessionFactory();
+	        //会话对象
+	      Session  session = sessionFactory.openSession();
+	      Session session2 = sessionFactory.openSession();
+	      System.out.println(session == session2);//false
+	      Assert.assertNotNull(session);
+		
+	}
+```
+2:
+```
+	@Test
+	public void testGetCurrentSession() {
+//		获得服务注册对象
+	      ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().configure().build();
+	        //创建会话工厂对象
+	      SessionFactory  sessionFactory = new MetadataSources(serviceRegistry).buildMetadata().buildSessionFactory();
+	        //会话对象
+	      Session  session = sessionFactory.getCurrentSession();
+	      Session session2 = sessionFactory.getCurrentSession();
+	      
+	      System.out.println(session == session2);//true
+	   
+	      Assert.assertNotNull(session);
+		
+	}
+```
+注意：
+```
+如果使用getCurrentSession 需要在hibernate.cfg.xml文件中进行配置。
+如果是本地事物：
+<property name="hibernate.current_session_context_class">thread</property>
+如果全局事物，jta事物
+<property name="hibernate.current_session_context_class">thread</property>
+
+```
+
+这两种方式的区别：
+```
+1：getCurrentSession在事物提交或者回滚之后会自动关闭，而openSession需要手动关闭。
+如果OpenSession没有手动关闭，多次之后会导致连接池溢出
+2：openSession 每次创建新的session对象， getcurrentSession使用现有的session对象
+```
+
+
 
