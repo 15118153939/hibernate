@@ -99,6 +99,49 @@ public class StudentsTest {
 		
 	}
 	
+	/**
+	 * get方法立即发出sql语句  load不会
+
+		get方法返回的是实体对象  load是代理对象
+
+	 */
+	
+	@Test
+	public void testGetStudents() {
+		Students s = session.get(Students.class, 100);
+		
+		System.out.println(s);
+		
+	}
+	
+	@Test
+	public void testloadStudents() {
+		Students s = session.load(Students.class, 11);
+		
+		System.out.println(s);
+		
+	}
+	@Test
+	public void testUpdateStudents() {
+		
+		Students s =session.get(Students.class, 1);
+		s.setGender("女");
+		session.update(s);
+
+		System.out.println(s);
+		
+	}
+	
+	@Test
+	public void testDeleteStudents() {
+		Students s = session.get(Students.class, 1);
+		session.delete(s );
+		s.setGender("女");
+		session.update(s);
+		
+		System.out.println(s);
+		
+	}
 	
 
 	

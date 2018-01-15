@@ -6,7 +6,8 @@
     <class name="com.lv.entity.Students" table="STUDENTS">
         <id name="sid" type="int">
             <column name="SID" />
-            <generator class="assigned" />
+          <!--  <generator class="assigned" /> --> 
+          <generator class="native"></generator>
         </id>
         <property name="sname" type="java.lang.String">
             <column name="SNAME" />

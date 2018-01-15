@@ -91,6 +91,13 @@ public class Students {
 	public Students() {
 		super();
 	}
+
+
+	@Override
+	public String toString() {
+		return "Students [sid=" + sid + ", sname=" + sname + ", gender=" + gender + ", birthday=" + birthday
+				+ ", address=" + address + "]";
+	}
 	
 	
 	

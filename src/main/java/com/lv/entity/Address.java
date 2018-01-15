@@ -31,6 +31,10 @@ public class Address {
 	public Address() {
 		super();
 	}
+	@Override
+	public String toString() {
+		return "Address [postcode=" + postcode + ", phone=" + phone + ", address=" + address + "]";
+	}
 	
 	
 
