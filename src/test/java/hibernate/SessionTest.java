@@ -60,7 +60,8 @@ public class SessionTest {
 		// 会话对象
 		Session session = sessionFactory.openSession();
 
-		Students s = new Students(3, "谢二哥", "男", new Date(), "武当");
+//		Students s = new Students(3, "谢二哥", "男", new Date(), "武当");
+		Students s = new Students();
 		
 		// 开启事务
 		Transaction transaction = session.beginTransaction();
@@ -81,7 +82,8 @@ public class SessionTest {
 		
 		
 		Session session2 = sessionFactory.openSession();
-		Students s2 = new Students(4, "谢三哥", "男", new Date(), "武当");
+//		Students s2 = new Students(4, "谢三哥", "男", new Date(), "武当");
+		Students s2 = new Students();
 		
 		Transaction transaction2 = session2.beginTransaction();
 		session2.save(s2);
@@ -111,7 +113,8 @@ public class SessionTest {
 				// 会话对象
 				Session session = sessionFactory.getCurrentSession();
 
-				Students s = new Students(1, "王二哥", "男", new Date(), "武当");
+//				Students s = new Students(1, "王二哥", "男", new Date(), "武当");
+				Students s = new Students();
 				
 				// 开启事务
 				Transaction transaction = session.beginTransaction();
@@ -136,7 +139,8 @@ public class SessionTest {
 				
 				
 				Session session2 =  sessionFactory.getCurrentSession();
-				Students s2 = new Students(2, "王三哥", "男", new Date(), "武当");
+//				Students s2 = new Students(2, "王三哥", "男", new Date(), "武当");
+				Students s2 = new Students();
 				
 				Transaction transaction2 = session2.beginTransaction();
 				session2.save(s2);

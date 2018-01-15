@@ -1,7 +1,14 @@
 package hibernate;
 
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
+import java.sql.Blob;
 import java.util.Date;
+
+import org.hibernate.Hibernate;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -13,6 +20,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.lv.entity.Address;
 import com.lv.entity.Students;
 
 /**
@@ -74,12 +82,24 @@ public class StudentsTest {
 		
 		
 //		创建学生对象
-		Students s = new Students(6,"三丰","男",new Date(),"武当");
+//		Students s = new Students(6,"三丰","男",new Date(),"武当");
 		
+		Students s = new Students();
+//		s.setAddress("峨眉山");
+		s.setSname("李瞎子");
+		s.setBirthday(new Date());
+		s.setGender("男");
+		
+		Address address = new Address("123456","13410269069","草泥马");
+		s.setAddress(address);
 //		保存对象
 		session.save(s);
 		
 		  
 		
 	}
+	
+	
+
+	
 }
