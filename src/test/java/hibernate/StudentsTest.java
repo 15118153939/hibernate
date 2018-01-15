@@ -74,7 +74,7 @@ public class StudentsTest {
 		
 		
 //		创建学生对象
-		Students s = new Students(2,"三丰","男",new Date(),"武当");
+		Students s = new Students(6,"三丰","男",new Date(),"武当");
 		
 //		保存对象
 		session.save(s);
