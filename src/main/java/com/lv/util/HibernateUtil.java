@@ -11,19 +11,29 @@ public class HibernateUtil {
 	private static Session session;
 	
 	static {
-		ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().configure().build();
-		// 创建会话工厂对象
-		SessionFactory sessionFactory = new MetadataSources(serviceRegistry).buildMetadata().buildSessionFactory();
+	    ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().configure().build();
+        //创建会话工厂对象
+        sessionFactory = new MetadataSources(serviceRegistry).buildMetadata().buildSessionFactory();
+      
 	}
-
+/**
+ * 获取SessionFactory
+ * @return
+ */
 	public static SessionFactory getSessionFactory() {
 		return sessionFactory;
 	}
-	
+
+	/**
+	 * 获取Session
+	 * @return
+	 */
 	public static Session getSession() {
-		return sessionFactory.openSession();
+		  //会话对象
+        session = sessionFactory.openSession();
+		return session;
 	}
-	
+
 	public static void closeSession(Session session) {
 		if (session != null) {
 			session.close();

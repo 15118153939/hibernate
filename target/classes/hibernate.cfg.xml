@@ -19,10 +19,13 @@
     	<property name="dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property> 
     	<property name="show_sql">true</property>
     	<property name="format_sql">true</property>
-    	<property name="hbm2ddl.auto">update</property>
+    	<property name="hbm2ddl.auto">create</property>
     	
     	<property name="hibernate.current_session_context_class">thread</property>
-    	<property name="hi"></property>
-    	<mapping resource="hbm/Students.hbm.xml"/>
+    
+    	<mapping resource="hbm/Project.hbm.xml"/>
+    	<mapping resource="hbm/Employee.hbm.xml"/>
+    	
+    	
     </session-factory>
 </hibernate-configuration>
