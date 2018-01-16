@@ -15,14 +15,14 @@
             <column name="GDESC" />
         </property>
         <!-- 一对多关联 -->
-        <!--  
-        <set name="students" table="STUDENT" inverse="false" lazy="true">
-            <key> -->
+        <!--s设置inverse 属性为true，由多方维护  关联关系-->
+        <!-- cascade级联操作，许谨慎 -->
+        <set name="students" table="STUDENT" inverse="true" lazy="true" cascade="save-update">
+            <key>
             <!-- 指定关联的外键列 -->
-             <!--   <column name="GID" />
+                <column name="GID" />
             </key>
             <one-to-many class="com.lv.entity.Student" />
-        </set>  -->
-       
+        </set>
     </class>
 </hibernate-mapping>

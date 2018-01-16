@@ -15,19 +15,21 @@ public class StudentTest {
 		Transaction transaction = session.beginTransaction();
 		
 		Grade g = new Grade();
-		g.setGname("终极多对一班");
+		g.setGname("级联二班");
 		g.setGdesc("很吊的终极一班");
 		
-		session.save(g);
+		
 		
 		for(int i=0;i<10 ;i++) {
-			Student s = new Student("隔壁老王"+i, i%2==0?"男":"女");
-
-//			设置关联关系
+			Student s = new Student("王"+i, i%2==0?"男":"女");
+//			设置关联关系--双向设置
 			s.setGrade(g);
-			session.save(s);
-			
+			g.getStudents().add(s);
+//			级联操作，不现实保存学生，也会级联保存和班级相关的学生。
+//			session.save(s);
 		}
+		
+		session.save(g);
 		transaction.commit();
 		HibernateUtil.closeSession(session);
 		
