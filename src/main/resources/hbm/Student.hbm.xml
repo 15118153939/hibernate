@@ -14,5 +14,7 @@
         <property name="sex" type="java.lang.String">
             <column name="SEX" />
         </property>
+        <!-- 配置多对一关联关系 -->
+        <many-to-one name="grade" class="com.lv.entity.Grade" column="gid"></many-to-one>
     </class>
 </hibernate-mapping>

@@ -15,12 +15,14 @@
             <column name="GDESC" />
         </property>
         <!-- 一对多关联 -->
+        <!--  
         <set name="students" table="STUDENT" inverse="false" lazy="true">
-            <key>
+            <key> -->
             <!-- 指定关联的外键列 -->
-                <column name="GID" />
+             <!--   <column name="GID" />
             </key>
             <one-to-many class="com.lv.entity.Student" />
-        </set>
+        </set>  -->
+       
     </class>
 </hibernate-mapping>

@@ -7,6 +7,15 @@ public class Student implements Serializable{
 	private int sid;
 	private String  sname;
 	private String sex;
+	
+	private Grade grade;
+	
+	public Grade getGrade() {
+		return grade;
+	}
+	public void setGrade(Grade grade) {
+		this.grade = grade;
+	}
 	public int getSid() {
 		return sid;
 	}
