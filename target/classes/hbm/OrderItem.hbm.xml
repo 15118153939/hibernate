@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2018-1-17 11:01:42 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.lv.model.OrderItem" table="ORDERITEM">
+        <id name="id" type="java.lang.Long">
+            <column name="ID" />
+            <generator class="increment" />
+        </id>
+        <many-to-one name="orderForm" class="com.lv.model.OrderForm" fetch="join">
+            <column name="ORDERFORM" />
+        </many-to-one>
+        <many-to-one name="commodity" class="com.lv.model.Commodity" fetch="join">
+            <column name="COMMODITY" />
+        </many-to-one>
+        <property name="discount" type="java.lang.Double">
+            <column name="DISCOUNT" />
+        </property>
+        <property name="actPrice" type="java.lang.Double">
+            <column name="ACTPRICE" />
+        </property>
+        <property name="amount" type="java.lang.Double">
+            <column name="AMOUNT" />
+        </property>
+        <property name="position" type="java.lang.Integer">
+            <column name="POSITION" />
+        </property>
+    </class>
+</hibernate-mapping>
