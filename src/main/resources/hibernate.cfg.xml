@@ -21,7 +21,24 @@
     	<property name="format_sql">true</property>
     	<!-- <property name="hbm2ddl.auto">update</property> -->
     	
-    	<property name="hibernate.current_session_context_class">thread</property>
+    	<!-- 缓存 -->
+    	<!--  <property name="hibernate.cache.use_second_level_cache">true</property>-->
+       <!--3 制定二级换成的外部实现类 4.0以后的配置-->
+		<!-- 开启二级缓存 -->
+		<property name="cache.use_second_level_cache">true</property>
+		<!-- 配置二级缓存使用的产品，RegionFactory为Ehcache的RegionFactory -->
+		<property name="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</property>
+		<!-- 默认情况下，查询缓存对HQL及QBC(Criteria)查询无效，可以启用如下设置 -->
+		<property name="cache.use_query_cache">true</property>
+		<!-- 记得在criteria查询中调用 setCacheable(true) 方法 -->
+		<!-- 配置管理session的方式 -->
+		<property name="current_session_context_class">thread</property>
+		<!-- 二级缓存配置文件的位置 添加配置文件 
+		【ehcache.xml一般放在classpath或src下，也可以自定义文件名和路径，
+		并在hibernate.cfg.xml中通过hibernate.cache.provider_configuration_file_resource_path参数指定 】-->
+		<!-- <property name="hibernate.cache.provider_configuration_file_resource_path">.../ehcache.xml</property> -->
+        
+  
 
     	<mapping resource="hbm/Seller.hbm.xml"/>
     	<mapping resource="hbm/Customer.hbm.xml"/>
